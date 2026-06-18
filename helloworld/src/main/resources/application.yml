@@ -1,0 +1,40 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
+  freemarker:
+    cache: false
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  web:
+    resources:
+      static-locations:
+        - classpath:/static/
+        - file:./upload/
+        - classpath:/META-INF/resources/
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/social_platform?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: 369Sj2004.
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+server:
+  port: 8088
+  servlet:
+    context-path: /api # 接口统一前缀，前端请求地址变为 /api/login
